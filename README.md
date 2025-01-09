@@ -34,3 +34,15 @@
 | option_id  | bigint unsigned | NO   | MUL | NULL    |                |
 | created_at | timestamp       | YES  |     | NULL    |                |
 | updated_at | timestamp       | YES  |     | NULL    |                |
+
+### An sql query that can be used for testing
+
+```sql
+SELECT p.id as poll_id, 
+       p.title as poll_title, 
+       o.id as option_id, 
+       o.name as option_name 
+    FROM polls AS p
+         LEFT JOIN options as o ON p.id = o.poll_id 
+            ORDER BY p.id, o.id;
+```
