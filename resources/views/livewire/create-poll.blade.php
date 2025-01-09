@@ -10,6 +10,8 @@
         <input type="text" id="simple-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500" placeholder="Poll title..." wire:model="title" required />
     </div>
 
+    <p class="mt-2 text-sm text-red-600 dark:text-red-500">@error('title') {{ $message }} @enderror</p>
+
     <form wire:submit.prevent="createPoll">
 
         <div class="my-5">
@@ -36,6 +38,7 @@
                 <span class="sr-only">Remove Opton</span>
             </button>
         </div>
+        <p class="mt-2 text-sm text-red-600 dark:text-red-500">@error("options.{$index}") {{ $message }} @enderror</p>
         @endforeach
 
         <div class="mt-20">
