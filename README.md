@@ -45,9 +45,11 @@
 SELECT p.id as poll_id, 
        p.title as poll_title, 
        o.id as option_id, 
-       o.name as option_name 
+       o.name as option_name, 
+       v.id as vote_id
     FROM polls AS p
          LEFT JOIN options as o ON p.id = o.poll_id 
+         LEFT JOIN votes as v ON o.id = v.option_id 
             ORDER BY p.id, o.id;
 ```
 
