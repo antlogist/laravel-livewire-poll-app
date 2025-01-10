@@ -33,7 +33,14 @@
 </head>
 
 <body class="container mx-auto mt-10 mb-10 max-w-lg">
-  <livewire:create-poll />
+
+  <div>
+    <livewire:create-poll />
+  </div>
+
+  <div>
+    <livewire:polls />
+  </div>
 
   @livewireScripts
 </body>

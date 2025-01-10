@@ -1,5 +1,5 @@
 <div>
-
+    <h2 class="mt-10 mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-gray">Add Poll</h2>
     <div class="relative w-full">
         <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
             <svg class="w-3 h-3 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 16">
@@ -41,7 +41,7 @@
         <p class="mt-2 text-sm text-red-600 dark:text-red-500">@error("options.{$index}") {{ $message }} @enderror</p>
         @endforeach
 
-        <div class="mt-20">
+        <div class="mt-10">
             <button type="submit" class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-gray-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" wire:click.prevent="createPoll">Create Poll</button>
         </div>
 
