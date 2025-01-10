@@ -106,8 +106,7 @@ public function render()
 
 The name **poll_id** is due to the naming convention for foreign keys in relational databases, which is accepted in Laravel. By default, when you have a one-to-many relationship (for example, one survey has many options), the foreign key in the child table (in our case, the options table) is called the name of the parent entity (poll) plus the suffix _id. This convention helps maintain consistency and makes the code easier to read.
 
-<u>***One of the convenient features of Livewire is accessing related models directly in the Blade templates without having to load them additionally in the controller or component.***</u>
-
+😍 <u>***One of the convenient features of Livewire is accessing related models directly in the Blade templates without having to load them additionally in the controller or component.***</u>
 ```php
 // app/Livewire/Poll.php
 
@@ -126,3 +125,28 @@ public function render()
 ```
 
 ---
+
+### Triggering an Event
+
+To initiate an event, use the dispatch method:
+```php
+$this->dispatch('poll-created');
+```
+
+The #[On('poll-created')] attribute is used to handle the event. This attribute indicates that the class is a listener for the poll-created event.
+```php
+use App\Models\Poll;
+use Livewire\Attributes\On;
+use Livewire\Component;
+
+class Polls extends Component
+{
+    #[On('poll-created')] 
+    public function render()
+    {
+        $polls = Poll::orderByDesc('updated_at')->get();
+
+        return view('livewire.polls', ['polls' => $polls]);
+    }
+}
+```
