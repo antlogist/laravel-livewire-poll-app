@@ -50,6 +50,8 @@ SELECT p.id as poll_id,
 ### Validation
 
 ```php
+// app/Livewire/CreatePoll.php
+
 public $title;
 public $options = [''];
 
@@ -64,5 +66,7 @@ protected function rules()
 ```
 
 ```blade
+// resources/views/livewire/create-poll.blade.php
+
 <p class="mt-2 text-sm text-red-600 dark:text-red-500">@error('title') {{ $message }} @enderror</p>
 ```
