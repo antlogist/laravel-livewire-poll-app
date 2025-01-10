@@ -47,6 +47,12 @@ SELECT p.id as poll_id,
             ORDER BY p.id, o.id;
 ```
 
+### Livewire generator command
+
+```
+php artisan make:livewire CreatePoll
+```
+
 ### Validation
 
 ```php
