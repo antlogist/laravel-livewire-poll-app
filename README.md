@@ -46,3 +46,23 @@ SELECT p.id as poll_id,
          LEFT JOIN options as o ON p.id = o.poll_id 
             ORDER BY p.id, o.id;
 ```
+
+### Validation
+
+```php
+public $title;
+public $options = [''];
+
+protected function rules()
+{
+    return [
+        'title' => 'required|min:3|max:255',
+        'options' => 'required|min:1|max:10',
+        'options.*' => 'required|min:1|max:255',
+    ];
+}
+```
+
+```blade
+<p class="mt-2 text-sm text-red-600 dark:text-red-500">@error('title') {{ $message }} @enderror</p>
+```
